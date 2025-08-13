@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import LogIn, { UsersProvider } from "./components/LogIn";
+import SignIn from "./components/signIn";
+import GuestBook from "./components/GuestBook";
+import YsDict from "./components/ysDict";
+import Rendezvous from "./components/Rendezvous";
+import NavBar from "./NavBar";
+import Home from "./Home";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UsersProvider>
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path='/' element={<LogIn />}></Route>
+          <Route path='/:id/Home' element={<Home />}></Route>
+          <Route path='/SignIn' element={<SignIn />}></Route>
+          <Route path='/:id/GuestBook' element={<GuestBook />}></Route>
+          <Route path='/:id/YsDict' element={<YsDict />}></Route>
+          <Route path='/:id/Rendezvous' element={<Rendezvous />}></Route>
+        </Routes>
+      </BrowserRouter>
+    </UsersProvider>
   );
-}
-
+};
 export default App;
