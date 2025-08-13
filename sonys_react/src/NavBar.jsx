@@ -1,10 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
     return (
-        <div>
-            
-        </div>
+        <nav>
+            <ul>
+                <li><Link to="/">홈</Link></li>
+            </ul>
+        </nav>
     );
 };
 
